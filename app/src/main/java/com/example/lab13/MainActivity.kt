@@ -26,6 +26,7 @@ class MainActivity : ComponentActivity() {
 fun MainScreen() {
     var showVisibilityExample by remember { mutableStateOf(false) }
     var showColorExample by remember { mutableStateOf(false) }
+    var showSizeAndPositionExample by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -38,30 +39,50 @@ fun MainScreen() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        // Botón para Ejercicio 1: Animación de Visibilidad
         Button(onClick = {
             showVisibilityExample = true
             showColorExample = false
+            showSizeAndPositionExample = false
         }) {
             Text("Ejercicio 1: Animación de Visibilidad")
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
+        // Botón para Ejercicio 2: Cambio de Color
         Button(onClick = {
             showColorExample = true
             showVisibilityExample = false
+            showSizeAndPositionExample = false
         }) {
             Text("Ejercicio 2: Cambio de Color")
         }
 
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Botón para Ejercicio 3: Animación de Tamaño y Posición
+        Button(onClick = {
+            showSizeAndPositionExample = true
+            showVisibilityExample = false
+            showColorExample = false
+        }) {
+            Text("Ejercicio 3: Tamaño y Posición")
+        }
+
         Spacer(modifier = Modifier.height(16.dp))
 
+        // Mostrar el ejercicio correspondiente según la selección
         if (showVisibilityExample) {
             AnimatedVisibilityExample()
         }
 
         if (showColorExample) {
             AnimatedColorExample()
+        }
+
+        if (showSizeAndPositionExample) {
+            AnimatedSizeAndPositionExample()
         }
     }
 }
