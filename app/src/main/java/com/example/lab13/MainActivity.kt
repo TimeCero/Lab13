@@ -11,6 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.lab13.ui.theme.AnimatedColorExample
+import com.example.lab13.ui.theme.AnimatedContentExample
 import com.example.lab13.ui.theme.AnimatedVisibilityExample
 
 class MainActivity : ComponentActivity() {
@@ -27,6 +28,7 @@ fun MainScreen() {
     var showVisibilityExample by remember { mutableStateOf(false) }
     var showColorExample by remember { mutableStateOf(false) }
     var showSizeAndPositionExample by remember { mutableStateOf(false) }
+    var showContentExample by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -44,6 +46,7 @@ fun MainScreen() {
             showVisibilityExample = true
             showColorExample = false
             showSizeAndPositionExample = false
+            showContentExample = false
         }) {
             Text("Ejercicio 1: Animación de Visibilidad")
         }
@@ -55,19 +58,33 @@ fun MainScreen() {
             showColorExample = true
             showVisibilityExample = false
             showSizeAndPositionExample = false
+            showContentExample = false
         }) {
             Text("Ejercicio 2: Cambio de Color")
         }
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Botón para Ejercicio 3: Animación de Tamaño y Posición
+        // Botón para Ejercicio 3: Tamaño y Posición
         Button(onClick = {
             showSizeAndPositionExample = true
             showVisibilityExample = false
             showColorExample = false
+            showContentExample = false
         }) {
             Text("Ejercicio 3: Tamaño y Posición")
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        // Botón para Ejercicio 4: Cambio de Contenido
+        Button(onClick = {
+            showContentExample = true
+            showVisibilityExample = false
+            showColorExample = false
+            showSizeAndPositionExample = false
+        }) {
+            Text("Ejercicio 4: Cambio de Contenido")
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -83,6 +100,10 @@ fun MainScreen() {
 
         if (showSizeAndPositionExample) {
             AnimatedSizeAndPositionExample()
+        }
+
+        if (showContentExample) {
+            AnimatedContentExample()
         }
     }
 }
